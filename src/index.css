@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+body,
+label {
+  font-family: "Open Sans", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: rgb(121, 145, 221);
+}
+
+h1 {
+  color: white;
+}
+
+h2,
+label {
+  color: rgb(255, 255, 255);
+}
+
+h3 {
+  color: rgb(255, 255, 255);
+  font-size: xx-large;
+}
+
+p {
+  color: rgb(255, 255, 255);
+  font-size: large;
+  word-break: break-all;
+}
