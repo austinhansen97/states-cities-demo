@@ -4,11 +4,11 @@ import "./Form.css";
 import { useState } from "react";
 
 function Form(props) {
-  const [selectedPlanet, setSelectedPlanet] = useState("");
-  const [chosenFact, setChosenFact] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [chosenCity, setChosenCity] = useState("");
 
   function runFunction() {
-    props.selectedPlanet(selectedPlanet);
+    props.selectedState(selectedState);
   }
 
   return (
@@ -21,12 +21,12 @@ function Form(props) {
               <label>CHOOSE A STATE</label>
               <select
                 onChange={(event) => {
-                  setSelectedPlanet(event.target.value);
-                  setChosenFact("");
+                  setSelectedState(event.target.value);
+                  setChosenCity("");
                 }}
                 onClick={runFunction}
               >
-                {props.planetArray}
+                {props.stateArray}
               </select>
             </div>
 
@@ -34,17 +34,17 @@ function Form(props) {
               <label>CHOOSE A CITY</label>
               <select
                 onChange={(event) => {
-                  setChosenFact(event.target.value);
+                  setChosenCity(event.target.value);
                 }}
               >
-                {props.planetDetailsArray}
+                {props.citiesArray}
               </select>
             </div>
           </section>
 
           <section className="right-panel">
-            <h3>{selectedPlanet}</h3>
-            <p>{chosenFact}</p>
+            <h3>{selectedState}</h3>
+            <p>{chosenCity}</p>
           </section>
         </form>
       </Card>

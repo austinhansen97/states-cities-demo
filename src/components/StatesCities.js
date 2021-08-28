@@ -4,9 +4,9 @@ import Form from "./Form";
 import "./Form.css";
 
 function StateCities() {
-  const [planet, setPlanet] = useState("");
-  const [planetDetails, setPlanetDetails] = useState("");
-  const [selectedPlanet, setSelectedPlanet] = useState("");
+  const [state, setState] = useState("");
+  const [cities, setCities] = useState("");
+  const [selectedState, setSelectedState] = useState("");
 
   // STATES DROPDOWN
 
@@ -23,24 +23,24 @@ function StateCities() {
             </option>
           );
         });
-        setPlanet(transformedStates);
+        setState(transformedStates);
       });
   }, []);
 
-  let planetArray = [planet];
+  let stateArray = [state];
 
-  // let planetArray = 0;
+  // let stateArray = 0;
   // planetListFunction();
   // function planetListFunction() {
-  //   planetArray = [];
+  //   stateArray = [];
   //   for (let i = -1; i < planet.length; i++) {
-  //     planetArray.push(
+  //     stateArray.push(
   //       <option key={Math.random()} value={planet[i]}>
   //         {planet[i]}
   //       </option>
   //     );
   //   }
-  //   return planetArray;
+  //   return stateArray;
   // }
 
   // CITIES IN SELECTED STATE
@@ -53,52 +53,52 @@ function StateCities() {
       .then((data) => {
         let cities = data["Florida"][1];
         console.log(cities);
-        setPlanetDetails(cities);
+        setCities(cities);
       });
   }, []);
 
-  let planetDetailsArray = [];
-  if (selectedPlanet === "Florida") {
-    planetDetailsArray = [
+  let citiesArray = [];
+  if (selectedState === "Florida") {
+    citiesArray = [
       <option key={Math.random()} value=""></option>,
-      <option key={Math.random()} value={planetDetails}>
-        {planetDetails}
+      <option key={Math.random()} value={cities}>
+        {cities}
       </option>,
     ];
   }
 
   // // for loop that runs to get data.results[i].name . pushes object to array
-  // let planetDetailsArray = [];
-  // for (let i = 0; i < planetDetails.length; i++) {
-  //   if (planetDetails[i].name === selectedPlanet) {
-  //     planetDetailsArray.push(
+  // let citiesArray = [];
+  // for (let i = 0; i < cities.length; i++) {
+  //   if (cities[i].name === selectedState) {
+  //     citiesArray.push(
   //       <option key={Math.random()}></option>,
-  //       <option key={Math.random()} value={planetDetails[i].population}>
-  //         Population ({planetDetails[i].population})
+  //       <option key={Math.random()} value={cities[i].population}>
+  //         Population ({cities[i].population})
   //       </option>,
-  //       <option key={Math.random()} value={planetDetails[i].climate}>
-  //         Climate ({planetDetails[i].climate})
+  //       <option key={Math.random()} value={cities[i].climate}>
+  //         Climate ({cities[i].climate})
   //       </option>,
-  //       <option key={Math.random()} value={planetDetails[i].terrain}>
-  //         Terrain ({planetDetails[i].terrain})
+  //       <option key={Math.random()} value={cities[i].terrain}>
+  //         Terrain ({cities[i].terrain})
   //       </option>,
-  //       <option key={Math.random()} value={planetDetails[i].url}>
-  //         API URL ({planetDetails[i].url})
+  //       <option key={Math.random()} value={cities[i].url}>
+  //         API URL ({cities[i].url})
   //       </option>
   //     );
   //   }
   // }
 
-  function selectedPlanetHandler(selectedPlanetFromForms) {
-    setSelectedPlanet(selectedPlanetFromForms);
+  function selectedStateHandler(selectedStateFromForms) {
+    setSelectedState(selectedStateFromForms);
   }
 
   return (
     <div>
       <Form
-        selectedPlanet={selectedPlanetHandler}
-        planetDetailsArray={planetDetailsArray}
-        planetArray={planetArray}
+        selectedState={selectedStateHandler}
+        citiesArray={citiesArray}
+        stateArray={stateArray}
       />
     </div>
   );
