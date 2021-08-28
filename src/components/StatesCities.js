@@ -29,20 +29,6 @@ function StateCities() {
 
   let stateArray = [state];
 
-  // let stateArray = 0;
-  // planetListFunction();
-  // function planetListFunction() {
-  //   stateArray = [];
-  //   for (let i = -1; i < planet.length; i++) {
-  //     stateArray.push(
-  //       <option key={Math.random()} value={planet[i]}>
-  //         {planet[i]}
-  //       </option>
-  //     );
-  //   }
-  //   return stateArray;
-  // }
-
   // CITIES IN SELECTED STATE
 
   useEffect(() => {
@@ -51,43 +37,24 @@ function StateCities() {
         return response.json();
       })
       .then((data) => {
-        let cities = data["Florida"][1];
-        console.log(cities);
-        setCities(cities);
+        let citiesList = data;
+        setCities(citiesList);
       });
   }, []);
 
-  let citiesArray = [];
-  if (selectedState === "Florida") {
-    citiesArray = [
-      <option key={Math.random()} value=""></option>,
-      <option key={Math.random()} value={cities}>
-        {cities}
-      </option>,
-    ];
-  }
+  // SCT 2 CITIES: data["Florida"][1]
 
-  // // for loop that runs to get data.results[i].name . pushes object to array
-  // let citiesArray = [];
-  // for (let i = 0; i < cities.length; i++) {
-  //   if (cities[i].name === selectedState) {
-  //     citiesArray.push(
-  //       <option key={Math.random()}></option>,
-  //       <option key={Math.random()} value={cities[i].population}>
-  //         Population ({cities[i].population})
-  //       </option>,
-  //       <option key={Math.random()} value={cities[i].climate}>
-  //         Climate ({cities[i].climate})
-  //       </option>,
-  //       <option key={Math.random()} value={cities[i].terrain}>
-  //         Terrain ({cities[i].terrain})
-  //       </option>,
-  //       <option key={Math.random()} value={cities[i].url}>
-  //         API URL ({cities[i].url})
-  //       </option>
-  //     );
-  //   }
-  // }
+  // for loop that runs to get data.results[i].name . pushes object to array
+  let citiesArray = [<option key={Math.random()} value=""></option>];
+  for (let i = 0; i < cities["Florida"].length; i++) {
+    if (selectedState === "Florida") {
+      citiesArray.push(
+        <option key={Math.random()} value={cities[selectedState][i]}>
+          {cities[selectedState][i]}
+        </option>
+      );
+    }
+  }
 
   function selectedStateHandler(selectedStateFromForms) {
     setSelectedState(selectedStateFromForms);
