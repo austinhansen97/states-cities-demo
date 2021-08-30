@@ -16,7 +16,7 @@ label {
 html,
 body {
   margin: 0;
-  background-color: rgb(121, 145, 221);
+  background-color: rgb(151, 168, 224);
 }
 
 h1 {
@@ -31,6 +31,7 @@ label {
 h3 {
   color: rgb(255, 255, 255);
   font-size: xx-large;
+  margin: 0;
 }
 
 p {

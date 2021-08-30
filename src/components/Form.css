@@ -1,6 +1,7 @@
 .title {
   font-size: xxx-large;
   text-align: center;
+  margin: 0;
 }
 
 select {
@@ -13,14 +14,13 @@ select {
 
 label {
   font-size: medium;
-  margin: 3% 0;
+  margin: 1% 0;
   padding: 0;
 }
 
 /* parent */
 .parent-dropdowns {
   width: 100%;
-  color: rgb(255, 230, 0);
   font-weight: 600;
   font-size: xx-large;
   display: flex;
@@ -29,7 +29,7 @@ label {
   justify-content: center;
 }
 
-/* left child*/
+/* top child*/
 .left-panel {
   margin: 1%;
   width: 100%;
@@ -45,18 +45,11 @@ label {
   margin: 0%;
 }
 
-/* right child*/
+/* bottom child*/
 .right-panel {
   font-size: small;
   width: 80%;
-  margin: 1%;
-}
-
-.planet-image {
-  width: 40%;
-  margin: 0;
-  padding: 0;
-  animation: spin 49s linear infinite;
+  margin: 0%;
 }
 
 @keyframes spin {
