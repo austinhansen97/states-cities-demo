@@ -11,6 +11,7 @@ function StateCities() {
   // STATES DROPDOWN
 
   // pulls states list from API
+
   useEffect(() => {
     fetch("https://mocki.io/v1/47a15552-e3f3-455b-9293-7b5aa5d4ab88")
       .then((response) => {
@@ -19,7 +20,7 @@ function StateCities() {
       .then((data) => {
         const transformedStates = data.map((states) => {
           return (
-            <option key={Math.random()} value={states}>
+            <option key={Math.random()} title="state-option" value={states}>
               {states}
             </option>
           );
@@ -65,7 +66,11 @@ function StateCities() {
   let citiesArray = [<option key={Math.random()} value=""></option>];
   for (let i = 0; i < numOfCities; i++) {
     citiesArray.push(
-      <option key={Math.random()} value={cities[selectedState][i]}>
+      <option
+        key={Math.random()}
+        title="city-option"
+        value={cities[selectedState][i]}
+      >
         {cities[selectedState][i]}
       </option>
     );

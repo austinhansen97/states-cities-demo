@@ -4,7 +4,7 @@ import "./Form.css";
 import { useState } from "react";
 
 function Form(props) {
-  const [selectedState, setSelectedState] = useState("");
+  const [selectedState, setSelectedState] = useState("Alabama");
   const [chosenCity, setChosenCity] = useState("");
 
   function runFunction() {
@@ -25,6 +25,7 @@ function Form(props) {
                   setChosenCity("");
                 }}
                 onClick={runFunction}
+                title="state-select"
               >
                 {props.stateArray}
               </select>
@@ -36,6 +37,7 @@ function Form(props) {
                 onChange={(event) => {
                   setChosenCity(event.target.value);
                 }}
+                title="city-select"
               >
                 {props.citiesArray}
               </select>

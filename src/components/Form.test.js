@@ -1,30 +1,25 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Form from "./Form";
 
 describe("Forms component", () => {
-  test("Checks if STAR WARS PLANETS renders", () => {
-    // arrange
-    render(<Form />);
+  test("When Alabama is selected, cities list is empty", () => {
+    const { queryByText, queryByTitle } = render(<Form />);
+    const citiesDropdown = queryByTitle("city-option");
 
-    //Act
-
-    //..nothing
-
-    //Assert
-    const starWarsPlanetsElement = screen.getByText("STAR WARS PLANETS");
-    expect(starWarsPlanetsElement).toBeInTheDocument();
+    expect(queryByText("Alabama")).toBeTruthy();
+    expect(citiesDropdown).toBeFalsy();
   });
 
-  test("Checks if planet data transferred to props.planetArray/props.planetDetailsArray in Forms", () => {
+  test("Checks if U.S. STATES renders", () => {
+    render(<Form />);
+    const USstatesElement = screen.getByText("U.S. STATES");
+    expect(USstatesElement).toBeInTheDocument();
+  });
+
+  test("Checks if states data transferred to props.stateArray/props.stateDetailsArray in Forms", () => {
     render(<Form />);
     const listBoxElements = screen.getAllByRole("combobox");
     expect(listBoxElements).not.toHaveLength(0);
-  });
-
-  test("Checks if CHOOSE A FACT is displaying", () => {
-    render(<Form />);
-    const fact = screen.getByText("choose a fact", { exact: false });
-    expect(fact).toBeInTheDocument();
   });
 });
